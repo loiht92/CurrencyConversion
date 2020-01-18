@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen doi tien te</title>
+</head>
+<body>
+<div>
+    <form>
+        <p>Amount</p>
+        <label><input type="text" id="amount"></label>
+    </form>
+</div>
+<div>
+    <p>From Currency</p>
+    <label><select id="chuyendoi1">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+    </select></label>
+</div>
+<div>
+    <p>To Currency</p>
+    <label><select id="chuyendoi2">
+        <option value="USD">USD</option>
+        <option value="VND">VND</option>
+    </select></label>
+</div>
+<p>
+    <button onclick="convert()">convert</button> <span id="result"></span>
+</p>
+<script>
+    function convert() {
+        let amount = Number(document.getElementById("amount").value);
+        let from_currency = document.getElementById("chuyendoi1").value;
+        let to_currency = document.getElementById("chuyendoi2").value;
+        let x;
+        if (from_currency==="USD" && to_currency==="VND") {
+            x= amount *23000 +"VND" ;
+        }
+        else {
+            if (from_currency==="VND" && to_currency==="USD") {
+                x=amount/23000 +"USD" ;
+            }
+        }
+        document.getElementById("result").innerText= x;
+    }
+</script>
+</body>
+</html>
